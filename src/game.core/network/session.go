@@ -9,7 +9,7 @@ import (
 )
 
 func Send(ws *ws.Conn, data []byte) {
-	b_buf := bytes .NewBuffer([]byte{})
+	b_buf := bytes.NewBuffer([]byte{})
 	err := binary.Write(b_buf, binary.BigEndian, int32(len(data)))
 	if err != nil {
 		log.Fatal(err)
@@ -29,7 +29,7 @@ func Recv(ws *ws.Conn) []byte {
 	if err != nil {
 		log.Fatal(err)
 	}
-	b_buf := bytes .NewBuffer(head)
+	b_buf := bytes.NewBuffer(head)
 	var length int32
 	err = binary.Read(b_buf, binary.BigEndian, &length)
 	if err != nil {
